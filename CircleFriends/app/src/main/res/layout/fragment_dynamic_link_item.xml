@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/fragment_dynamic_top_item"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:background="@color/back_gray">
+        <ImageView
+            android:id="@+id/link_image_iv"
+            android:padding="2dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/link_title_tv"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/font_black"
+            android:text="美润儿T恤男2017春装新韩版修身男"/>
+    </LinearLayout>
+    <include layout="@layout/fragment_dynamic_bottom_item"/>
+</LinearLayout>

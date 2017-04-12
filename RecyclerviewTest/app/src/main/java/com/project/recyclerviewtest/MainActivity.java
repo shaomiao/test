@@ -46,11 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initData();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-        //设置适配器
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         businessAdapter = new BusinessAdapter(this, mDatas);
 //        businessAdapter.setOnRecyclerViewListener(this);
@@ -71,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    // 数据
     protected void initData() {
         mDatas = new ArrayList<>();
         List<ProductEntity> products = new ArrayList<>();
@@ -91,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    // 点击显示popwindow
     private void showFiltratePopWindow(View view) {
 
         // 一个自定义的布局，作为显示的内容
