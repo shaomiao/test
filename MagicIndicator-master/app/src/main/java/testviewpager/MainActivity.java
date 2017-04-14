@@ -35,6 +35,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD"};
+    // 2 3 15 v16
     private List<String> mDataList = new ArrayList<String>(Arrays.asList(CHANNELS));
     private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
 
@@ -50,10 +51,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_m);
 
         List<Fragment> fragmentList = new ArrayList<Fragment>();
-        Fragment btFragment = new  ViewPagerFragment();
+        Bundle bundle = new Bundle();
+        Fragment btFragment = new ViewPagerFragment();
+        bundle = new Bundle();
+        bundle.putString(ViewPagerFragment.FLAG, "2");
+        btFragment.setArguments(bundle);
         Fragment secondFragment = new ViewPagerFragment();
+        bundle = new Bundle();
+        bundle.putString(ViewPagerFragment.FLAG, "3");
+        secondFragment.setArguments(bundle);
         Fragment thirdFragment = new ViewPagerFragment();
+        bundle = new Bundle();
+        bundle.putString(ViewPagerFragment.FLAG, "15");
+        thirdFragment.setArguments(bundle);
         Fragment fourthFragment = new ViewPagerFragment();
+        bundle = new Bundle();
+        bundle.putString(ViewPagerFragment.FLAG, "15");
+        fourthFragment.setArguments(bundle);
         fragmentList.add(btFragment);
         fragmentList.add(secondFragment);
         fragmentList.add(thirdFragment);

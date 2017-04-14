@@ -37,6 +37,8 @@ import okhttp3.Call;
 
 public class ViewPagerFragment extends BaseLazyFragment implements BGARefreshLayout.BGARefreshLayoutDelegate {
 
+    public static String FLAG = "first_cate_id";
+
     private RecyclerView mRecyclerView;
 
     private List<ShoppingClassifyGridEntity> mData;
@@ -46,6 +48,8 @@ public class ViewPagerFragment extends BaseLazyFragment implements BGARefreshLay
     private BGARefreshLayout mRefreshLayout;
 
     private int page = 1;
+
+    private String firstCateId = "0";
 
     private static ViewPagerFragment mFragment;
 
@@ -73,6 +77,10 @@ public class ViewPagerFragment extends BaseLazyFragment implements BGARefreshLay
         mRecyclerView.setAdapter(mAdapter);
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        Bundle bundle = new Bundle();
+        String dd = getArguments().getString(FLAG);
+        firstCateId = dd;
+        Toast.makeText(mContext, ""+dd, Toast.LENGTH_SHORT).show();
         getProduct();
     }
 
@@ -137,7 +145,7 @@ public class ViewPagerFragment extends BaseLazyFragment implements BGARefreshLay
                 .url(url)
                 .addParams("app_key", MD5Util.getMD5Key(url))
                 .addParams("cate_one","0")
-                .addParams("cate_two","0")
+                .addParams("cate_two",firstCateId)
                 .addParams("cate_three","0")
                 .addParams("cate_four","0")
                 .addParams("price2","999999999999999")
@@ -153,9 +161,13 @@ public class ViewPagerFragment extends BaseLazyFragment implements BGARefreshLay
 
                     @Override
                     public void onResponse(BaseJsonEntity response, int id) {
-                        Toast.makeText(getActivity(), "操作成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "操作成功", Toast.LENGTH_SHORT).show();
                         mData.clear();
                         List<ShoppingClassifyGridEntity> datas = FastJsonUtils.getObjectsList(FastJsonUtils.getStr(response.getObj(), "list"), ShoppingClassifyGridEntity.class);
+                        Toast.makeText(mContext, (datas==null) + "", Toast.LENGTH_SHORT).show();
+                        if (datas!=null ) {
+                            Toast.makeText(mContext, ""+datas.size(), Toast.LENGTH_SHORT).show();
+                        }
                         mData.addAll(datas);
                         mAdapter.notifyDataSetChanged();
                         mRefreshLayout.endRefreshing();
