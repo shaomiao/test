@@ -10,6 +10,7 @@ package com.project.recyclerviewtest.entity;
 public class ProductEntity {
 
     // 商品图片
+
     private String productImage;
 
     // 商品名称
