@@ -1,0 +1,88 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.AppTheme">
+    </style>
+
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.OverlapSystemBar" parent="Base.AppTheme" />
+
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- toolbar颜色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- 状态栏颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- 定义Toolbar 属性 -->
+    <style name="Toolbar">
+        <!-- 系统自带title的颜色 -->
+        <item name="android:textColorPrimary">@color/titleColor</item>
+        <!-- 文字颜色-->
+        <item name="android:textColor">@color/titleColor</item>
+    </style>
+
+    <!-- 定义首页3个按钮通用布局 -->
+    <style name="BottomBar">
+        <!--<item name="android:background">@drawable/button_click_effect</item>-->
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/titleColor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <!-- toolbar的通用style -->
+    <style name="Toolbar.Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--<item name="android:background">?attr/colorPrimary</item>-->
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:theme">@style/Toolbar</item>
+    </style>
+
+    <!-- toolbar中间的textview -->
+    <style name="Toolbar.CenterTv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/top_bar_center_text</item>
+    </style>
+    <!-- toolbar右边的view -->
+    <style name="Toolbar.rightView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:background">@drawable/button_click_effect</item>
+    </style>
+
+    <style name="Toolbar.leftView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:layout_gravity">left</item>
+        <!--<item name="android:background">@drawable/button_click_effect</item>-->
+    </style>
+
+    <style name="ButtonTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorButtonNormal">#FF4081</item><!--正常状态下的颜色  -->
+        <item name="colorControlHighlight">#22000000</item><!--覆盖色，按下的颜色  -->
+    </style>
+
+    <style name="CustomDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">#ffE91E63</item>
+    </style>
+</resources>

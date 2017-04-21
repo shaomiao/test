@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar.Style"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/backIv"
+            style="@style/Toolbar.leftView"
+            android:src="@mipmap/left" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Toolbar.CenterTv"
+            android:text="@string/order_detail_title" />
+
+        <TextView
+            android:id="@+id/orderStateTv"
+            style="@style/Toolbar.rightView"
+            android:text="已完成" />
+    </android.support.v7.widget.Toolbar>
+
+    <include layout="@layout/line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_detail_number"
+                    android:textColor="@color/fontColorBlack" />
+
+                <TextView
+                    android:id="@+id/orderIdTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:text="65456454123"
+                    android:textColor="@color/bottomTextSelected" />
+
+                <TextView
+                    android:id="@+id/orderTimeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-03-02 10:10:30"
+                    android:textColor="@color/fontColorGray" />
+            </LinearLayout>
+
+            <include layout="@layout/line" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/merchant_edition"
+                android:drawablePadding="5dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:text="@string/order_detail_product"
+                android:textColor="@color/fontColorGray" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/productDetailsRv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/merchant_edition"
+                android:drawablePadding="5dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:text="@string/order_detail_user"
+                android:textColor="@color/fontColorGray" />
+
+            <TextView
+                android:id="@+id/addressTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@mipmap/calendar"
+                android:drawablePadding="5dp"
+                android:text="黑龙江省 哈尔滨市 道外区xdfsdfdsdfdf"
+                android:textColor="@color/fontColorBlack" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/line" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="@string/order_detail_remarks" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我身高一米八dfjldsjflsdjf" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line" />
+
+</LinearLayout>

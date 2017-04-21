@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                <!-- toolbar颜色 -->
+                <item name="colorPrimary">@color/colorPrimary</item>
+                <!-- 顶部栏颜色 -->
+                <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+                <item name="colorAccent">@color/colorAccent</item>
+                <!-- 底部栏颜色 -->
+                <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        </style>
+
+        <style name="Toolbar.Style">
+                <item name="android:layout_width">match_parent</item>
+                <item name="android:layout_height">wrap_content</item>
+                <item name="android:background">?attr/colorPrimary</item>
+                <item name="android:minHeight">?attr/actionBarSize</item>
+                <item name="android:theme">@style/Toolbar</item>
+                <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        </style>
+</resources>

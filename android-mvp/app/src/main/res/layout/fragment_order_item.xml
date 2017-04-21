@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/titleColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp"
+                android:text="订单号"/>
+            <TextView
+                android:id="@+id/orderIdTv"
+                android:textColor="@color/fontColorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SDFDFDSF"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/orderDateTv"
+            android:textColor="@color/fontColorGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017-03-02 10:20:30"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/orderStateTv"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bottomTextSelected"
+            android:paddingBottom="10dp"
+            android:text="待收货"
+            />
+
+        <TextView
+            android:id="@+id/orderAmountTv"
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bottomTextSelected"
+            android:textSize="15sp"
+            android:text="90.00"
+            />
+    </LinearLayout>
+</RelativeLayout>

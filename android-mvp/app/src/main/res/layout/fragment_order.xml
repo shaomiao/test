@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar.Style" >
+            <TextView
+                android:id="@+id/shop_name"
+                android:textSize="@dimen/top_bar_simal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="商家名称"/>
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/Toolbar.CenterTv"
+                android:text="@string/bottom_order" />
+            <ImageView
+                android:id="@+id/search_iv"
+                style="@style/Toolbar.rightView"
+                android:src="@mipmap/home_lookup"
+                />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/line"/>
+
+    <!--<android.support.design.widget.TabLayout-->
+        <!--android:id="@+id/tabLayout"-->
+        <!--app:tabIndicatorHeight="0dp"-->
+        <!--app:tabBackground="@drawable/button_click_effect"-->
+        <!--app:tabSelectedTextColor="@color/bottomTextSelected"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--</android.support.design.widget.TabLayout>-->
+    <com.shizhefei.view.indicator.ScrollIndicatorView
+        android:id="@+id/moretab_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:fillViewport="false" />
+
+    <include layout="@layout/line"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--<FrameLayout-->
+            <!--android:id="@+id/contentFrame"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v4.view.ViewPager>
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>
