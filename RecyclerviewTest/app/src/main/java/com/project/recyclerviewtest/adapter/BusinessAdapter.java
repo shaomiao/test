@@ -41,14 +41,16 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.MyView
 
     private Context mContext;
 
-    private List<Object> mData;
+    private List<BusinessEntity> mData;
+
+
 
     public void setOnRecyclerViewListener(OnRecyclerViewListener mItemListener) {
         this.listener = mItemListener;
 
     }
 
-    public BusinessAdapter(Context context, List<Object> datas) {
+    public BusinessAdapter(Context context, List<BusinessEntity> datas) {
         this.mContext = context;
         this.mData = datas;
     }

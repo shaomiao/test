@@ -19,6 +19,15 @@ public class ProductEntity {
     // 商品价格
     private String productPrice;
 
+    public ProductEntity(){}
+
+
+    public ProductEntity(String productImage, String productName, String productPrice) {
+        this.productImage = productImage;
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
+
     public String getProductImage() {
         return productImage;
     }
@@ -42,4 +51,5 @@ public class ProductEntity {
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
     }
+
 }

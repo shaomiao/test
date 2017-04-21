@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private BusinessAdapter businessAdapter;
 
-    private List<Object> mDatas;
+    private List<BusinessEntity> mDatas;
 
 
     private ImageView imageView;
@@ -56,6 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         businessAdapter.setOnRecyclerViewListener(new BusinessAdapter.OnRecyclerViewListener() {
             @Override
             public void onBusinessImgClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "dddd", Toast.LENGTH_SHORT).show();
+//                for (int i=0;i<mDatas.get(position).getProducts().size();i++) {
+                mDatas.get(position).getProducts().get(position).setProductPrice("121");
+//                }
+                businessAdapter.notifyDataSetChanged();
 
             }
 
@@ -77,13 +82,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             productEntity.setProductPrice("99." + i);
             products.add(productEntity);
         }
-        for (int i = 1; i < 30; i++) {
-            BusinessEntity entity = new BusinessEntity();
-            entity.setBusinessName("ddddfsdfdsfsdfsdfzzzz" + i);
-            entity.setBusinessImage("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1564533037,3918553373&fm=116&gp=0.jpg");
-            entity.setProducts(products);
-            mDatas.add(entity);
-        }
+//        for (int i = 1; i < 30; i++) {
+//            BusinessEntity entity = new BusinessEntity();
+//            entity.setBusinessName("ddddfsdfdsfsdfsdfzzzz" + i);
+//            entity.setBusinessImage("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1564533037,3918553373&fm=116&gp=0.jpg");
+//            entity.setProducts(products);
+//            mDatas.add(entity);
+//        }
+        List<ProductEntity> list = new ArrayList<>();
+        list.add(new ProductEntity("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1532593936,3492168681&fm=23&gp=0.jpg","dfdff","23.00"));
+        list.add(new ProductEntity("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1532593936,3492168681&fm=23&gp=0.jpg","ffff","23.00"));
+
+        BusinessEntity entity = new BusinessEntity();
+        entity.setBusinessName("ddddfsdfdsfsdfsdfzzzz");
+        entity.setBusinessImage("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1564533037,3918553373&fm=116&gp=0.jpg");
+        entity.setProducts(products);
+        mDatas.add(entity);
+//
+        BusinessEntity entity2 = new BusinessEntity();
+        entity2.setBusinessName("ddddfsdfdsfsdfsdfzzzz");
+        entity2.setBusinessImage("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1564533037,3918553373&fm=116&gp=0.jpg");
+        entity2.setProducts(list);
+        mDatas.add(entity2);
+
     }
 
 
