@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         // 设置item动画
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        init();
-//        initzhy();
+//        initzhy( );
         MultiItemTypeAdapter adapter = new MultiItemTypeAdapter(this,mDataList);
         adapter.addItemViewDelegate(new MsgComingItemDelagate());
-        adapter.addItemViewDelegate(new MsgComingItemDelagate());
+        adapter.addItemViewDelegate(new MsgComingItemDelagate2());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -55,12 +55,39 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean isForViewType(String item, int position) {
-            return position%3==0;
+            if (position%2==0) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         @Override
         public void convert(ViewHolder holder, String s, int position) {
             holder.setText(R.id.tv_num,s);
+        }
+    }
+
+    public class MsgComingItemDelagate2 implements ItemViewDelegate<String>{
+
+        @Override
+        public int getItemViewLayoutId() {
+            return R.layout.item1;
+        }
+
+
+        @Override
+        public boolean isForViewType(String item, int position) {
+            if (position%2!=0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        @Override
+        public void convert(ViewHolder holder, String s, int position) {
+            holder.setText(R.id.tv_title,s);
         }
     }
 

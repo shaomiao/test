@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/back_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="基本信息" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/back_gray"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/shopping_merchants_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_become_merchant_no"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/shopping_merchants_iv"
+                        android:paddingTop="2dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/merchant_choice_no" />
+
+                    <TextView
+                        android:id="@+id/shopping_merchants_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="成为购物商家" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/takeaway_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_become_merchant_no"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/takeaway_iv"
+                        android:paddingTop="2dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/merchant_choice_no" />
+
+                    <TextView
+                        android:id="@+id/takeaway_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="成为外卖商家" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/back_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="基本信息" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="姓名" />
+
+                <EditText
+                    android:id="@+id/name_et"
+                    style="@style/login_edittext_style"
+                    android:layout_marginLeft="5dp"
+                    android:hint="请输入真实姓名"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="身份证号" />
+
+                <EditText
+                    android:id="@+id/id_card_et"
+                    style="@style/login_edittext_style"
+                    android:layout_marginLeft="5dp"
+                    android:hint="请输入身份证号"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="联系电话" />
+
+                <EditText
+                    android:id="@+id/phone_et"
+                    style="@style/login_edittext_style"
+                    android:layout_marginLeft="5dp"
+                    android:hint="请输入联系电话"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/back_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="上传资料" />
+
+            <ImageView
+                android:id="@+id/upload_id_iv"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/witle"
+                android:src="@mipmap/shenfen_id" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/back_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="上传营业执照" />
+
+            <ImageView
+                android:id="@+id/upload_business_license_iv"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/witle"
+                android:src="@mipmap/zhizhao_id" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/submit_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/back_gray"
+        android:text="提交申请" />
+</RelativeLayout>

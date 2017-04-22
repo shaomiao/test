@@ -9,7 +9,7 @@
         android:paddingRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/font"
+        android:textColor="@color/font_yellow"
         android:text="+"/>
 
     <LinearLayout
@@ -24,14 +24,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="￥"
-                android:textColor="@color/font"/>
+                android:textColor="@color/font_yellow"/>
             <TextView
                 android:id="@+id/price_tv"
                 android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200.00"
-                android:textColor="@color/font"/>
+                android:textColor="@color/font_yellow"/>
         </LinearLayout>
         <TextView
             android:id="@+id/date_tv"

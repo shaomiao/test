@@ -4,5 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="line">#e1e1e1</color>
-    <color name="font">#cbab78</color>
+    <color name="font_yellow">#cbab78</color>
+    <color name="font">#ababab</color>
+
+    <color name="default_text_black_color">#505356</color>
+    <color name="hint_default_color">#C9C9C9</color>
+    <color name="back_gray">#ECECEC</color>
+    <color name="witle">#ffffff</color>
 </resources>
