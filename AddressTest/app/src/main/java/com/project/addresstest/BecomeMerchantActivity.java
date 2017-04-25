@@ -55,6 +55,8 @@ public class BecomeMerchantActivity extends AppCompatActivity implements View.On
         mShoppingMerchantsLL.setOnClickListener(this);
         mTakeawayLL.setOnClickListener(this);
         mSubmitBt.setOnClickListener(this);
+        mUploadIdIv.setOnClickListener(this);
+        mUploadBusinessLicenseIv.setOnClickListener(this);
     }
 
     private void initData() {
@@ -78,6 +80,12 @@ public class BecomeMerchantActivity extends AppCompatActivity implements View.On
             case R.id.submit_bt:
                 submit();
                 break;
+            // 上传身份证
+            case R.id.upload_id_iv:
+                break;
+            // 上传营业执照
+            case R.id.upload_business_license_iv:
+                break;
         }
     }
 
@@ -92,6 +100,10 @@ public class BecomeMerchantActivity extends AppCompatActivity implements View.On
 
 
         }
+    }
+
+    private void checkImage() {
+
     }
 
     private void check() {

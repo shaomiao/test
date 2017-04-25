@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="right|top"
-            android:text="没有匹配的联系人"
+            android:text="没有匹配"
             android:background="#E0E0E0"
             android:textColor="#454545"
             android:visibility="gone"/>
