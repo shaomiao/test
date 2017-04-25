@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.testadapter.adapter.BaseRecyclerAdapter;
@@ -14,6 +15,9 @@ import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
+import com.zhy.adapter.recyclerview.wrapper.EmptyWrapper;
+import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
+import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<String> mDataList;
-    private BaseRecyclerAdapter mAdapter;
+    private CommonAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +37,62 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i <= 100; i++ ) {
             mDataList.add(String.valueOf(i));
         }
+
+        initzhy( );
+
         // 设置item动画
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
 //        init();
-//        initzhy( );
-        MultiItemTypeAdapter adapter = new MultiItemTypeAdapter(this,mDataList);
-        adapter.addItemViewDelegate(new MsgComingItemDelagate());
-        adapter.addItemViewDelegate(new MsgComingItemDelagate2());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        MultiItemTypeAdapter adapter = new MultiItemTypeAdapter(this,mDataList);
+//        adapter.addItemViewDelegate(new MsgComingItemDelagate());
+//        adapter.addItemViewDelegate(new MsgComingItemDelagate2());
+//        recyclerView.setAdapter(adapter);
+//        mAdapter = new BaseRecyclerAdapter() {
+//            @Override
+//            public int getItemLayoutId(int viewType) {
+//                return 0;
+//            }
+//
+//            @Override
+//            public void bindData(RecyclerViewHolder holder, int position, Object item) {
+//
+//            }
+//
+//            @Override
+//            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+//
+//            }
+//        }
 
+        // 头尾布局
+//        HeaderAndFooterWrapper mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mAdapter);
+//
+//        TextView t1 = new TextView(this);
+//        t1.setText("header 1");
+//        TextView t2 = new TextView(this);
+//        t2.setText("Header 2");
+//        mHeaderAndFooterWrapper.addHeaderView(t1);
+//        mHeaderAndFooterWrapper.addFootView(t2);
+////        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(mHeaderAndFooterWrapper);
+//        mHeaderAndFooterWrapper.notifyDataSetChanged();
+
+//        final LoadMoreWrapper mLoadMoreWrapper = new LoadMoreWrapper(mAdapter);
+//        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
+//        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
+//            @Override
+//            public void onLoadMoreRequested() {
+//
+//                Toast.makeText(MainActivity.this, "您正在加载更多", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        recyclerView.setAdapter(mLoadMoreWrapper);
+
+        mDataList.clear();
+        EmptyWrapper mEmptWrapper = new EmptyWrapper(mAdapter);
+        mEmptWrapper.setEmptyView(R.layout.default_loading);
+        recyclerView.setAdapter(mEmptWrapper);
+//        mEmptWrapper.notifyDataSetChanged();
     }
 
     public class MsgComingItemDelagate implements ItemViewDelegate<String>{
@@ -86,14 +136,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void convert(ViewHolder holder, String s, int position) {
+        public void convert(ViewHolder holder, String s, final int position) {
             holder.setText(R.id.tv_title,s);
+            holder.setOnClickListener(R.id.tv_title, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
 
     private void initzhy() {
-        recyclerView.setAdapter(new CommonAdapter<String>(this,R.layout.item,mDataList) {
+        mAdapter = new CommonAdapter<String>(this,R.layout.item,mDataList) {
             @Override
             protected void convert(ViewHolder holder, String s, final int position) {
                 holder.setText(R.id.tv_num,s);
@@ -104,13 +160,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        };
+//        recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void init() {
 
-        mAdapter = new BaseRecyclerAdapter<String>(this,mDataList) {
+        BaseRecyclerAdapter mAdapter = new BaseRecyclerAdapter<String>(this,mDataList) {
 
             @Override
             public int getItemLayoutId(int viewType) {
