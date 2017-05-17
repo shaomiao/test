@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <include layout="@layout/head_title_layout" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/fragment_dynamic_top_item" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/image_list_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/image1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_launcher" />
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/image2"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_launcher" />
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/image3"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_launcher" />
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/image4"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_launcher" />
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/linkLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                android:background="@color/back_gray">
+                <ImageView
+                    android:id="@+id/link_image_iv"
+                    android:padding="2dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"/>
+                <TextView
+                    android:id="@+id/link_title_tv"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:text="美润儿T恤男2017春装新韩版修身男"/>
+            </LinearLayout>
+
+
+            <include layout="@layout/fragment_dynamic_bottom_item" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+    <!--</LinearLayout>-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+    <!--<View-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--/>-->
+    <!--<EditText-->
+    <!--android:id="@+id/edittext"-->
+    <!--android:layout_gravity="bottom"-->
+    <!--style="@style/login_edittext_style"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_marginLeft="5dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:hint="请输入评论"-->
+    <!--android:inputType="text"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+    <!--</FrameLayout>-->
+</LinearLayout>

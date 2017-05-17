@@ -156,7 +156,7 @@
                     style="@style/login_edittext_style"
                     android:layout_marginLeft="5dp"
                     android:hint="请输入联系电话"
-                    android:inputType="text" />
+                    android:inputType="phone" />
             </LinearLayout>
 
             <TextView

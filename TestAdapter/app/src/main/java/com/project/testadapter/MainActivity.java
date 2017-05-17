@@ -1,5 +1,6 @@
 package com.project.testadapter;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.project.testadapter.adapter.BaseRecyclerAdapter;
 import com.project.testadapter.adapter.RecyclerViewHolder;
+import com.project.testadapter.entity.FriendsEntity;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
@@ -25,7 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<String> mDataList;
+    private List<FriendsEntity> mDataList;
     private CommonAdapter mAdapter;
 
     @Override
@@ -33,169 +35,143 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mDataList = new ArrayList<>();
-        for(int i = 0; i <= 100; i++ ) {
-            mDataList.add(String.valueOf(i));
-        }
 
-        initzhy( );
+//        mDataList.add(new FriendsEntity());
+//        public FriendsEntity(String dynamicId, String dynamicNickName, String dynamicHeadPortrait, String dynamicDate, String dynamicFabulousNum, String dynamicCommentNum,
+// String dynamicTitle, String dynamicLink, String dynamicLinkName, String dynamicLinkImage, String dynamicImage, String dynamicLinkId, String[] dynamicImages, boolean isFabulousCheck, String dynamicType, String type, String praise) {
 
-        // 设置item动画
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        init();
-//        MultiItemTypeAdapter adapter = new MultiItemTypeAdapter(this,mDataList);
-//        adapter.addItemViewDelegate(new MsgComingItemDelagate());
-//        adapter.addItemViewDelegate(new MsgComingItemDelagate2());
-//        recyclerView.setAdapter(adapter);
-//        mAdapter = new BaseRecyclerAdapter() {
-//            @Override
-//            public int getItemLayoutId(int viewType) {
-//                return 0;
-//            }
-//
-//            @Override
-//            public void bindData(RecyclerViewHolder holder, int position, Object item) {
-//
-//            }
-//
-//            @Override
-//            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-//
-//            }
-//        }
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_MANY_PICTURE.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_SINGLE_PICTURE.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_STRING.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
+        mDataList.add(new FriendsEntity("id", "名称", "头像", "2017-7-8", "20", "40", "标题", "链接", "商品名", "商品图片", "动态图片", "链接id", null, false, "xx", "xx", FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal()));
 
-        // 头尾布局
-//        HeaderAndFooterWrapper mHeaderAndFooterWrapper = new HeaderAndFooterWrapper(mAdapter);
-//
-//        TextView t1 = new TextView(this);
-//        t1.setText("header 1");
-//        TextView t2 = new TextView(this);
-//        t2.setText("Header 2");
-//        mHeaderAndFooterWrapper.addHeaderView(t1);
-//        mHeaderAndFooterWrapper.addFootView(t2);
-////        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(mHeaderAndFooterWrapper);
-//        mHeaderAndFooterWrapper.notifyDataSetChanged();
+        MultiItemTypeAdapter adapter = new MultiItemTypeAdapter(this, mDataList);
+        adapter.addItemViewDelegate(new ManyPictureDelegate());
+        adapter.addItemViewDelegate(new SinglePictureDelegate());
+        adapter.addItemViewDelegate(new LinkDelegate());
+        adapter.addItemViewDelegate(new StringDelegate());
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
-//        final LoadMoreWrapper mLoadMoreWrapper = new LoadMoreWrapper(mAdapter);
-//        mLoadMoreWrapper.setLoadMoreView(R.layout.default_loading);
-//        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
-//            @Override
-//            public void onLoadMoreRequested() {
-//
-//                Toast.makeText(MainActivity.this, "您正在加载更多", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        recyclerView.setAdapter(mLoadMoreWrapper);
-
-        mDataList.clear();
-        EmptyWrapper mEmptWrapper = new EmptyWrapper(mAdapter);
-        mEmptWrapper.setEmptyView(R.layout.default_loading);
-        recyclerView.setAdapter(mEmptWrapper);
-//        mEmptWrapper.notifyDataSetChanged();
     }
 
-    public class MsgComingItemDelagate implements ItemViewDelegate<String>{
+    public class ManyPictureDelegate implements ItemViewDelegate<FriendsEntity> {
+        @Override
+        public int getItemViewLayoutId() {
+            return R.layout.fragment_friends_manypicture_item;
+        }
+
+        @Override
+        public boolean isForViewType(FriendsEntity item, int position) {
+            return item.getDynamicType() == FriendsEntity.ITEM_TYPE.ITEM_MANY_PICTURE.ordinal();
+        }
+
+        @Override
+        public void convert(ViewHolder holder, FriendsEntity friendsEntity, int position) {
+
+
+            bindHolder(holder, friendsEntity);
+//            holder.setText(R.id.image_list_rv,friendsEntity.getGoodsName());
+        }
+    }
+
+    private void bindHolder(ViewHolder holder, FriendsEntity friendsEntity) {
+        holder.setText(R.id.name_tv, friendsEntity.getDynamicNickName());
+        holder.setText(R.id.date_tv, friendsEntity.getDynamicDate());
+//            holder.setText(R.id.title_tv,Base64Util.decryptBASE64(friendsEntity.getTitle()));
+            holder.setText(R.id.title_tv,friendsEntity.getDynamicTitle());
+        holder.setText(R.id.comment_tv, friendsEntity.getDynamicCommentNum());
+        holder.setText(R.id.fabulous_tv, friendsEntity.getDynamicFabulousNum());
+
+//            holder.setText(R.id.head_portrait_iv,friendsEntity.getGoodsName());
+        holder.setOnClickListener(R.id.comment_ll, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "评论", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.setOnClickListener(R.id.fabulous_ll, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "点赞", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.setOnClickListener(R.id.head_portrait_iv, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "头像", Toast.LENGTH_SHORT).show();
+            }
+        });
+        if (friendsEntity.isFabulousCheck()) {
+            holder.setTextColor(R.id.fabulous_tv, Color.parseColor("#cbab78"));
+            holder.setImageResource(R.id.fabulous_iv, R.mipmap.dynamic_fabulous_sel);
+        } else {
+            holder.setTextColor(R.id.fabulous_tv, Color.parseColor("#000000"));
+            holder.setImageResource(R.id.fabulous_iv, R.mipmap.dynamic_fabulous_no);
+        }
+    }
+
+
+    public class SinglePictureDelegate implements ItemViewDelegate<FriendsEntity> {
 
         @Override
         public int getItemViewLayoutId() {
-            return R.layout.item;
-        }
-
-
-        @Override
-        public boolean isForViewType(String item, int position) {
-            if (position%2==0) {
-                return true;
-            } else {
-                return false;
-            }
+            return R.layout.fragment_friends_singlepicture_item;
         }
 
         @Override
-        public void convert(ViewHolder holder, String s, int position) {
-            holder.setText(R.id.tv_num,s);
+        public boolean isForViewType(FriendsEntity item, int position) {
+            return item.getDynamicType() == FriendsEntity.ITEM_TYPE.ITEM_SINGLE_PICTURE.ordinal();
+        }
+
+        @Override
+        public void convert(ViewHolder holder, FriendsEntity friendsEntity, int position) {
+            bindHolder(holder, friendsEntity);
         }
     }
 
-    public class MsgComingItemDelagate2 implements ItemViewDelegate<String>{
+    public class LinkDelegate implements ItemViewDelegate<FriendsEntity> {
+        @Override
+        public int getItemViewLayoutId() {
+            return R.layout.fragment_friends_link_item;
+        }
+
+        @Override
+        public boolean isForViewType(FriendsEntity item, int position) {
+            return item.getDynamicType() == FriendsEntity.ITEM_TYPE.ITEM_LINK.ordinal();
+        }
+
+        @Override
+        public void convert(ViewHolder holder, FriendsEntity friendsEntity, int position) {
+            bindHolder(holder, friendsEntity);
+        }
+    }
+
+    public class StringDelegate implements ItemViewDelegate<FriendsEntity> {
 
         @Override
         public int getItemViewLayoutId() {
-            return R.layout.item1;
-        }
-
-
-        @Override
-        public boolean isForViewType(String item, int position) {
-            if (position%2!=0) {
-                return true;
-            } else {
-                return false;
-            }
+            return R.layout.fragment_friends_string_item;
         }
 
         @Override
-        public void convert(ViewHolder holder, String s, final int position) {
-            holder.setText(R.id.tv_title,s);
-            holder.setOnClickListener(R.id.tv_title, new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
-                }
-            });
+        public boolean isForViewType(FriendsEntity item, int position) {
+            return item.getDynamicType() == FriendsEntity.ITEM_TYPE.ITEM_STRING.ordinal();
+        }
+
+        @Override
+        public void convert(ViewHolder holder, FriendsEntity friendsEntity, int position) {
+            bindHolder(holder, friendsEntity);
         }
     }
 
-
-    private void initzhy() {
-        mAdapter = new CommonAdapter<String>(this,R.layout.item,mDataList) {
-            @Override
-            protected void convert(ViewHolder holder, String s, final int position) {
-                holder.setText(R.id.tv_num,s);
-                holder.setOnClickListener(R.id.tv_num, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mContext, "x"+position, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        };
-//        recyclerView.setAdapter(mAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private void init() {
-
-        BaseRecyclerAdapter mAdapter = new BaseRecyclerAdapter<String>(this,mDataList) {
-
-            @Override
-            public int getItemLayoutId(int viewType) {
-                return R.layout.item;
-            }
-
-            @Override
-            public void bindData(RecyclerViewHolder holder, final int position, String item) {
-                // 调用holder.getView(),getXXX()方法根据id得到控件实现, 进行数据绑定即可
-                holder.setText(R.id.tv_num,item);
-//                holder.getTextView(R.id.tv_title).setText(item);
-                holder.setClickListener(R.id.tv_num, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mContext, position, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            }
-        };
-        recyclerView.setAdapter(mAdapter);
-//        mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View itemView, int position) {
-//                Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
 
 }
